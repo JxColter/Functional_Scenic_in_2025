@@ -8,3 +8,5 @@ Resources are located at:
 https://resources.aertslab.org/cistarget/
 
 GRNBoost2 requires arboreto_with_multiprocessing.py script to circumvent pyscenic incompatibilities.
+
+Once compatibilities between library states for grnboost2 and ctx/auc have been consolidated, the environment setup will be updated accordingly.
