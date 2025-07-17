@@ -1,4 +1,4 @@
-name: pyscenic_env
+name: pyscenic_grnboost2
 channels:
   - conda-forge
   - bioconda
