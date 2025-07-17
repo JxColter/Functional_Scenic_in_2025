@@ -3,7 +3,7 @@
 # jdcolter@ucalgary.ca
 
 # GRNBoost2 environment setup ------------------------------
-conda env create -f environment_pyscenic.yaml
+conda env create -f pyscenic_env.yaml
 conda activate pyscenic_grnboost2
 pip install pyscenic==0.11.2
 module load gcc
