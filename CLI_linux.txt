@@ -1,5 +1,6 @@
 # Written by James Colter, Biernaskie Lab - Bioinformatics and Computational Modeling
 # July 17, 2025
+# jdcolter@ucalgary.ca
 
 # GRNBoost2 environment setup ------------------------------
 conda env create -f environment_pyscenic.yaml
