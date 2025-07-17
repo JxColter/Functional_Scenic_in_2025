@@ -1,0 +1,15 @@
+name: pyscenic_env
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - python=3.9
+  - numpy=1.23.5
+  - pandas=2.2.2
+  - pyarrow
+  - feather-format
+  - loompy
+  - dask
+  - pip
+  - pip:
+    - dask[dataframe]
