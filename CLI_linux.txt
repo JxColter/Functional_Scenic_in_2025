@@ -1,0 +1,46 @@
+# Written by James Colter, Biernaskie Lab - Bioinformatics and Computational Modeling
+# July 17, 2025
+
+# GRNBoost2 environment setup ------------------------------
+conda env create -f environment_pyscenic.yaml
+conda activate pyscenic_grnboost2
+pip install pyscenic==0.11.2
+module load gcc
+
+# GRNBoost2 implementation
+python3 ./scripts/arboreto_with_multiprocessing.py \
+  --num_workers 6 \
+  --method grnboost2 \
+  --sparse \
+  -o adjacency_matrix.csv \
+  expression_matrix.loom \
+  mm_mgi_tfs.txt
+
+# ctx / AUCell environment setup ------------------------------
+
+conda create -y -n pyscenic_ctx python=3.10.12 dask-core=2023.9.1 -c conda-forge
+conda activate pyscenic_ctx
+pip install pyscenic==0.11.2
+pip install --user numpy==1.23.0 pandas==1.3.5 scipy==1.9.3 \
+  dask==2023.10.0 distributed==2023.10.0 \
+  pyarrow loompy tqdm \
+  arboreto==0.1.6 \
+  ctxcore>=0.2.0 cytoolz multiprocessing_on_dill==3.5.0a4
+module load gcc
+
+# ctx implementation
+pyscenic ctx \
+  --mode dask_multiprocessing \
+  rtx_d15_uninj_adj.csv \
+  mm10_10kbp_up_10kbp_down_full_tx_v10_clust.genes_vs_motifs.rankings.feather \
+  mm10_500bp_up_100bp_down_full_tx_v10_clust.genes_vs_motifs.rankings.feather \
+  --annotations_fname motifs-v10nr_clust-nr.mgi-m0.001-o0.0.tbl \
+  --expression_mtx_fname rtx_d15_merged_uninj_expression_matrix.loom \
+  --output regulons.csv \
+  --num_workers 16
+
+# AUCell
+pyscenic aucell \
+  rtx_d15_merged_uninj_expression_matrix.loom \
+  rtx_d15_uninj_regulons.csv \
+  --output auc_matrix.csv
