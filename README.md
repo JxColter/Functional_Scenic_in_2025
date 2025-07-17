@@ -9,4 +9,4 @@ https://resources.aertslab.org/cistarget/
 
 GRNBoost2 requires arboreto_with_multiprocessing.py script to circumvent pyscenic incompatibilities.
 
-Once compatibilities between library states for grnboost2 and ctx/auc have been consolidated, the environment setup will be updated accordingly.
+The CTX/AUC Environment state works for grnboost2 on Linux, haven't gone back and tested Windows yet. - July 17, 2025
