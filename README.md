@@ -2,7 +2,7 @@
 
 Having trouble with Scenic in 2025? I've isolated dependencies and input structure to get this working in 3 simple commands, on both Windows and Linux (HPC) command line interfaces (CLIs).
 
-This code assumes that you have processed your code and have an expression_matrix in loom format (for now).
+This code assumes that you have processed your data and have an expression_matrix in loom format (for now).
 
 Resources are located at:
 https://resources.aertslab.org/cistarget/
